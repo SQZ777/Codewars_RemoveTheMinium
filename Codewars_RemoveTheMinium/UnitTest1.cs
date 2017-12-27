@@ -18,7 +18,7 @@ namespace Codewars_RemoveTheMinium
     {
         public static List<int> RemoveSmallest(List<int> numbers)
         {
-            throw new NotImplementedException();
+            return new List<int>();
         }
 
     }
