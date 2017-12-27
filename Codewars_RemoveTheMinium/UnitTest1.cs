@@ -41,6 +41,7 @@ namespace Codewars_RemoveTheMinium
         {
             if (numbers.Count == 0)
                 return new List<int>();
+            
             numbers.RemoveAt(numbers.FindIndex(x => x == numbers.Min()));
             return numbers;
         }
