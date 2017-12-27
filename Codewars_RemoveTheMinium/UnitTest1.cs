@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -25,6 +26,13 @@ namespace Codewars_RemoveTheMinium
         {
             CollectionAssert.AreEqual(new List<int> { 2 }, Remover.RemoveSmallest(new List<int> { 1, 2 }));
         }
+
+        [TestMethod]
+        public void Input_22121_Should_Be_2221()
+        {
+            CollectionAssert.AreEqual(new List<int> { 2, 2, 2, 1 }, Remover.RemoveSmallest(new List<int> { 2, 2, 1, 2, 1 }));
+        }
+
     }
 
     public class Remover
@@ -32,12 +40,8 @@ namespace Codewars_RemoveTheMinium
         public static List<int> RemoveSmallest(List<int> numbers)
         {
             if (numbers.Count == 0)
-            {
                 return new List<int>();
-            }
-            var findMin = numbers.Min();
-            var minIndex = numbers.FindIndex(x => x == findMin);
-            numbers.RemoveAt(minIndex);
+            numbers.RemoveAt(numbers.FindIndex(x => x == numbers.Min()));
             return numbers;
         }
     }
